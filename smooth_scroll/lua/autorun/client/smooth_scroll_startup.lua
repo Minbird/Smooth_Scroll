@@ -11,8 +11,8 @@ hook.Add( "PreGamemodeLoaded", "Reloaded_DVScrollBar_Control", function()
 	print("//    Smooth Scroll StartUp    //")
 	print("/////////////////////////////////")
 	print("By Minbird")
-	print("System Version: 1.2")
-	print("System Version Date: 2021.7.29")
+	print("System Version: 1.3")
+	print("System Version Date: 2021.7.30")
 	print("[Smooth Scroll] Trying to redefine controls...")
 
 	local dermaCtrs = vgui.GetControlTable( "DVScrollBar" )
@@ -41,7 +41,7 @@ hook.Add( "PreGamemodeLoaded", "Reloaded_DVScrollBar_Control", function()
 			end
 		end
 
-		return OldScroll != self:GetScroll()
+		return math.Clamp( self:GetScroll() + tScroll, 0, self.CanvasSize ) != self:GetScroll()
 
 	end
 
